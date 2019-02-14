@@ -1,6 +1,5 @@
 from django.db import models
-import datetime
-import random
+from datetime import datetime
 
 # Create your models here.
 class consumer(models.Model):
@@ -22,10 +21,10 @@ class consumer(models.Model):
 class cabprosessing(models.Model):
     requestid=models.PositiveIntegerField()
     servicetype=models.CharField(max_length=250)
-    source=models.CharField(max_length=250)
+    source=models.CharField(max_length=250,default="ENSIM INDIA PVT.LTD")
     destnation=models.CharField(max_length=250)
-    Date=models.DateField()
-    Pickuptime=models.TimeField()
+    Date=models.DateField(default=datetime.now())
+    Pickuptime=models.TimeField(default=datetime.now())
     issuedto=models.CharField(max_length=250)
     Empid=models.PositiveIntegerField()
     Drivername=models.CharField(max_length=250)
