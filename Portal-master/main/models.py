@@ -1,10 +1,19 @@
 from django.db import models
-from datetime import datetime
+import datetime
+import random
 
 # Create your models here.
-class consumer(models.Model):
+
+class role_per(models.Model):
+    id=models.PositiveIntegerField(primary_key=True)
+    role=models.CharField(max_length=250)
+    perr=models.TextField()
+
+
+
+class consumer_Db(models.Model):
     User_type=models.CharField(max_length=250)
-    Empid = models.PositiveIntegerField(max_length=250)
+    Empid = models.ForeignKey('role_per',on_delete=models.CASCADE)
     password = models.CharField(max_length=20)
     Fname = models.CharField(max_length=250)
     Mname = models.CharField(max_length=250)
@@ -18,27 +27,4 @@ class consumer(models.Model):
 
 
 
-class cabprosessing(models.Model):
-    requestid=models.PositiveIntegerField()
-    servicetype=models.CharField(max_length=250)
-    source=models.CharField(max_length=250,default="ENSIM INDIA PVT.LTD")
-    destnation=models.CharField(max_length=250)
-    Date=models.DateField(default=datetime.now())
-    Pickuptime=models.TimeField(default=datetime.now())
-    issuedto=models.CharField(max_length=250)
-    Empid=models.PositiveIntegerField()
-    Drivername=models.CharField(max_length=250)
-    status=models.CharField(max_length=250)
-    fare=models.PositiveIntegerField()
-    location=models.CharField(max_length=250)
 
-class History(models.Model):
-    requestid=models.PositiveIntegerField()
-    Date=models.DateField()
-    Time=models.TimeField()
-    Servicetype=models.CharField(max_length=250)
-    Source=models.CharField(max_length=250)
-    Destination=models.CharField(max_length=250)
-    Driversname=models.CharField(max_length=250)
-    fare=models.PositiveIntegerField()
-    ratings=models.PositiveIntegerField()

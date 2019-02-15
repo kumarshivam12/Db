@@ -1,9 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import consumer
-from .models import History
-from .models import cabprosessing
-admin.site.register(consumer)
-admin.site.register(cabprosessing)
-admin.site.register(History)
+from .models import consumer_Db
+from .models import role_per
+admin.site.register(consumer_Db)
+admin.site.register(role_per)

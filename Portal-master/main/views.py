@@ -21,4 +21,4 @@ def get_name(request):
     else:
         form = ContactForm()
 
-    return render(request, 'name.html', {'form': form})
+    return render(request, 'home.html', {'form': form})
